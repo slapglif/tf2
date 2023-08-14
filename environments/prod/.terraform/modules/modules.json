@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"cognito_identity_pool","Source":"../../../modules/cognito-identity-pool/aws","Dir":""},{"Key":"cognito_user_pool","Source":"../../modules/cognito-user-pool/aws","Dir":""},{"Key":"keycloak","Source":"../../../modules/keycloak","Dir":""},{"Key":"load_balancer","Source":"../../../modules/load-balancer/aws","Dir":""}]}
