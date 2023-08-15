@@ -1,10 +1,12 @@
+
+# Main Terraform configuration file
 provider "aws" {
   region = var.aws_region
 }
 
 module "cognito_user_pool" {
   source  = "lgallard/cognito-user-pool/aws"
-
+  
 
   name                       = "id-domain-user-pool"
   admin_create_user          = true
@@ -18,15 +20,15 @@ module "cognito_user_pool" {
 
 module "cognito_identity_pool" {
   source  = "corpit-consulting-public/cognito-identity-pool/aws"
-
+  
 
   identity_pool_name = "id-domain-identity-pool"
   cognito_user_pool_id = module.cognito_user_pool.user_pool_id
 }
 
 module "keycloak" {
-  source  = "github.com/mrparkers/keycloak.git"
-
+  source  = "mrparkers/keycloak"
+  
 
   keycloak_url = "auth.id.music"
   realms       = var.environments
@@ -34,7 +36,7 @@ module "keycloak" {
 
 module "load_balancer" {
   source  = "terraform-aws-modules/alb/aws"
-
+  
 
   name            = "id-domain-load-balancer"
   subnets         = var.load_balancer_subnets
