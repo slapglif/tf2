@@ -1,3 +1,3 @@
 
 # Variables specific to the dev environment
-aws_region = "us-west-1"
+aws_region = "eu-west-1"

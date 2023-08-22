@@ -1,0 +1,29 @@
+[
+  {
+    "name": "keycloak",
+    "image": "jboss/keycloak",
+    "memory": 512,
+    "cpu": 256,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 8080,
+        "hostPort": 8080
+      }
+    ],
+    "environment": [
+      {
+        "name": "DB_ADDR",
+        "value": "${aws_db_instance.keycloak_db.endpoint}"
+      },
+      {
+        "name": "DB_USER",
+        "value": "keycloak"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "value": "password"
+      }
+    ]
+  }
+]
